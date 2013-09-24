@@ -1,8 +1,12 @@
+from os import path
 from tornalet import asyncify
 from tornado.httpclient import AsyncHTTPClient
 from requests import adapters, session as requests_session
 
-# Don't know how to handle this year, so just mock it out for now
+__version__ = get_version_string()
+
+
+# Don't know how to handle this yet, so just mock it out for now
 adapters.extract_cookies_to_jar = lambda a, b, c: None
 
 
@@ -47,3 +51,12 @@ def setup_session(session=None, mounts=None):
 
     for mount in mounts:
         session.mount(mount, AsyncHTTPAdapter())
+
+
+def get_version_string():
+    return open(path.join(path.dirname(__file__),
+                'version.txt'), 'r').read().strip()
+
+
+def get_version():
+    return get_version_string().split('.')
