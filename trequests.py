@@ -25,8 +25,7 @@ class AsyncHTTPAdapter(adapters.HTTPAdapter):
     non-blocking call inside the Tornado IOLoop whenever a
     requests.[get/post/put/delete/request]() call is made. It then wraps the
     tornado.httpclient.HTTPResponse as a requests.models.Response instance and
-    returns so that any library calling requests gets what it expects
-    (mostly).
+    returns so that any library calling requests gets what it expects (mostly).
     """
 
     def send(self, request, stream=False, timeout=None, verify=True,
@@ -53,6 +52,11 @@ class AsyncHTTPAdapter(adapters.HTTPAdapter):
 
 
 def setup_session(session=None, mounts=None):
+    """Mount the AsyncHTTPAdapter for a given session instance,
+    or for the default instance in python-requests, for a given set of mounts
+    or just for the default HTTP/HTTPS protocols.
+    """
+
     if session is None:
         session = requests_session
     if mounts is None:
