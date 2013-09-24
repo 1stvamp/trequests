@@ -1,4 +1,4 @@
 trequests
 =========
 
-ATornado async HTTP/HTTPS client adaptor for python-requests
+A Tornado async HTTP/HTTPS client adaptor for python-requests
