@@ -50,6 +50,6 @@ Usage
 Caveats
 -------
 
-`trequests` has been used in production in a large scalle metrics application, and is a very small and quite simple module.
+`trequests` has been used in production in a large scale metrics application, and is a very small and quite simple module.
 
 **However** I've released it as `0.9.x` mainly because it's missing 100% compatibility with the Requests adapter API, most noticeably *cookie jar* and *session* support, which I will improve (or please push a pull request back if you fancy adding support), and release as a `1.x` branch when I have the time.
