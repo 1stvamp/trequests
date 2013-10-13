@@ -6,10 +6,14 @@ A Tornado async HTTP/HTTPS client adaptor for python-requests.
 The problem
 -----------
 
+You enjoy using `Tornado <http://www.tornadoweb.org/>`_ to build fast non-blocking web applications, and you want to use a library from PyPI that makes a few HTTP requests, but pretty much every dev and her dog uses `Requests <http://python-requests.org/>`_ to make HTTP requests (rightly so, because it's *awesome*), but requests has no knowledge of the event loop nor can it yield when a socket blocks, which means any time you try to use a library like that it begins to block your request handling and grud-knows what other worlds of pain.
 
 The solution
 ------------
 
+Luckily there are solutions, one such is to use the `greenlet <>`_ module to wrap blocking operations and swap Tornado coroutines at the right time, there is even the handy `tornalet <>`_ module which handles this for you.
+
+To make life even easier, you lucky lucky people, I've created `trequests`, an async Requests adaptor which uses greenlets (via tornalet) and the inbuilt non-blocking HTTP client methos in Tornado, to make any call to a library (utilizing Requests) non-blocking.
 
 Installation
 ------------
