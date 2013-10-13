@@ -1,4 +1,4 @@
-tornalet
 greenlet >= 0.4
 tornado >= 2.0.0
+tornalet
 requests >= 1.0.0
