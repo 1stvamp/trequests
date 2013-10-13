@@ -1,7 +1,7 @@
 trequests
 =========
 
-.. image:: https://travis-ci.org/1stvamp/trequests.png?branch=master   :target: https://travis-ci.org/1stvamp/trequests
+.. image:: https://travis-ci.org/1stvamp/trequests.png?branch=master
 
 A Tornado async HTTP/HTTPS client adapter for python-requests.
 
