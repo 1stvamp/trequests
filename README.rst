@@ -1,7 +1,7 @@
 trequests
 =========
 
-A Tornado async HTTP/HTTPS client adaptor for python-requests.
+A Tornado async HTTP/HTTPS client adapter for python-requests.
 
 The problem
 -----------
@@ -13,7 +13,7 @@ The solution
 
 Luckily there are solutions, one such is to use the `greenlet <http://greenlet.readthedocs.org/>`_ module to wrap blocking operations and swap Tornado coroutines at the right time, there is even the handy `tornalet <https://github.com/Gawen/tornalet>`_ module which handles this for you.
 
-To make life even easier, you lucky lucky people, I've created `trequests`, an async Requests adaptor which uses greenlets (via tornalet) and the inbuilt non-blocking HTTP client methos in Tornado, to make any call to a library (utilizing Requests) non-blocking.
+To make life even easier, you lucky lucky people, I've created `trequests`, an async Requests adapter which uses greenlets (via tornalet) and the inbuilt non-blocking HTTP client methos in Tornado, to make any call to a library (utilizing Requests) non-blocking.
 
 Installation
 ------------
@@ -34,7 +34,7 @@ Usage
     from trequests import setup_session
     from tornalet import tornalet
     
-    # Tell requests to use our AsyncHTTPAdaptor for the default
+    # Tell requests to use our AsyncHTTPadapter for the default
     # session instance, you can also pass you own through
     setup_session()
     
@@ -52,4 +52,4 @@ Caveats
 
 `trequests` has been used in production in a large scalle metrics application, and is a very small and quite simple module.
 
-**However** I've released it as `0.9.x` mainly because it's missing 100% compatibility with the Requests adaptor API, most noticeably *cookie jar* and *session* support, which I will improve (or please push a pull request back if you fancy adding support), and release as a `1.x` branch when I have the time.
+**However** I've released it as `0.9.x` mainly because it's missing 100% compatibility with the Requests adapter API, most noticeably *cookie jar* and *session* support, which I will improve (or please push a pull request back if you fancy adding support), and release as a `1.x` branch when I have the time.
