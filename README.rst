@@ -11,7 +11,7 @@ You enjoy using `Tornado <http://www.tornadoweb.org/>`_ to build fast non-blocki
 The solution
 ------------
 
-Luckily there are solutions, one such is to use the `greenlet <>`_ module to wrap blocking operations and swap Tornado coroutines at the right time, there is even the handy `tornalet <>`_ module which handles this for you.
+Luckily there are solutions, one such is to use the `greenlet <http://greenlet.readthedocs.org/>`_ module to wrap blocking operations and swap Tornado coroutines at the right time, there is even the handy `tornalet <https://github.com/Gawen/tornalet>`_ module which handles this for you.
 
 To make life even easier, you lucky lucky people, I've created `trequests`, an async Requests adaptor which uses greenlets (via tornalet) and the inbuilt non-blocking HTTP client methos in Tornado, to make any call to a library (utilizing Requests) non-blocking.
 
@@ -45,3 +45,11 @@ Usage
             # This will now unblock the current coroutine, like magic
             response = bobs_big_data.BigData(data).post()
             return self.write(response)
+
+
+Caveats
+-------
+
+`trequests` has been used in production in a large scalle metrics application, and is a very small and quite simple module.
+
+**However** I've released it as `0.9.x` mainly because it's missing 100% compatibility with the Requests adaptor API, most noticeably *cookie jar* and *session* support, which I will improve (or please push a pull request back if you fancy adding support), and release as a `1.x` branch when I have the time.
