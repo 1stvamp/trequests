@@ -18,8 +18,8 @@ Installation
     
     $ pip install trequests
   
-U sage
-- ----
+Usage
+-----
   
 .. code-block:: python
     
