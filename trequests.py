@@ -1,7 +1,7 @@
+import requests
 from os import path
 from tornalet import asyncify
 from tornado.httpclient import AsyncHTTPClient
-from requests import adapters, session as requests_session
 
 
 def get_version_string():
@@ -16,10 +16,10 @@ def get_version():
 __version__ = get_version_string()
 
 # Don't know how to handle this yet, so just mock it out for now
-adapters.extract_cookies_to_jar = lambda a, b, c: None
+requests.adapters.extract_cookies_to_jar = lambda a, b, c: None
 
 
-class AsyncHTTPAdapter(adapters.HTTPAdapter):
+class AsyncHTTPAdapter(requests.adapters.HTTPAdapter):
     """A python-requests HTTP/HTTPS adapter that uses the Tornado
     AsyncHTTPClient and greenlets (via the tornalet library) to perform a
     non-blocking call inside the Tornado IOLoop whenever a
@@ -57,10 +57,12 @@ def setup_session(session=None, mounts=None):
     or just for the default HTTP/HTTPS protocols.
     """
 
-    if session is None:
-        session = requests_session
-    if mounts is None:
-        mounts = ('http://', 'https://')
+    def session():
+        if session is None:
+            session = requests.session()
+        if mounts is None:
+            mounts = ('http://', 'https://')
 
-    for mount in mounts:
-        session.mount(mount, AsyncHTTPAdapter())
+        for mount in mounts:
+            session.mount(mount, AsyncHTTPAdapter())
+    requests.session = requests.sessions.session = session
