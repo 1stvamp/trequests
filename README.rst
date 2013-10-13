@@ -53,3 +53,5 @@ Caveats
 `trequests` has been used in production in a large scale metrics application, and is a very small and quite simple module.
 
 **However** I've released it as `0.9.x` mainly because it's missing 100% compatibility with the Requests adapter API, most noticeably *cookie jar* and *session* support, which I will improve (or please push a pull request back if you fancy adding support), and release as a `1.x` branch when I have the time.
+
+Also at the moment the `setup_session` utility actually monkey patches the `session` utility functions in Requests, as this was the only way I could see to override the mounts on "default" session instances (e.g. those created for every call when a session isn't provided). I'm hoping to change this in the future.
