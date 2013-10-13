@@ -57,12 +57,16 @@ def setup_session(session=None, mounts=None):
     or just for the default HTTP/HTTPS protocols.
     """
 
-    def session():
-        if session is None:
-            session = requests.session()
-        if mounts is None:
-            mounts = ('http://', 'https://')
+    if session is None:
+        session = requests.session()
+    if mounts is None:
+        mounts = ('http://', 'https://')
 
+    def _session():
         for mount in mounts:
             session.mount(mount, AsyncHTTPAdapter())
-    requests.session = requests.sessions.session = session
+
+    if session is None:
+        requests.session = requests.sessions.session = _session
+    else:
+        _session()
