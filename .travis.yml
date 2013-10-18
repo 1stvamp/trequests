@@ -1,8 +1,8 @@
 language: "python"
 before_install:
-        - "pip install greenlet"
-        - "pip install tornado"
+        - "pip install https://api.github.com/repos/1stvamp/tornalet/tarball/fix-pip-install#egg=tornalet-1.0.1"
 python:
         - "2.6"
         - "2.7"
+        - "3.3"
 script: "nosetests"
