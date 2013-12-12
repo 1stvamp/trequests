@@ -8,7 +8,7 @@ A Tornado async HTTP/HTTPS client adapter for python-requests.
 The problem
 -----------
 
-You enjoy using `Tornado <http://www.tornadoweb.org/>`_ to build fast non-blocking web applications, and you want to use a library from PyPI that makes a few HTTP requests, but pretty much every dev and her dog uses `Requests <http://python-requests.org/>`_ to make HTTP requests (rightly so, because it's *awesome*), but requests has no knowledge of the event loop nor can it yield when a socket blocks, which means any time you try to use a library like that it begins to block your request handling and grud-knows what other worlds of pain.
+You enjoy using `Tornado <http://www.tornadoweb.org/>`_ to build fast non-blocking web applications, and you want to use a library from PyPI that makes a few HTTP requests, but pretty much every dev and their dog uses `Requests <http://python-requests.org/>`_ to make HTTP requests (rightly so, because it's *awesome*), but requests has no knowledge of the event loop nor can it yield when a socket blocks, which means any time you try to use a library like that it begins to block your request handling and grud-knows what other worlds of pain.
 
 The solution
 ------------
@@ -54,6 +54,6 @@ Caveats
 
 ``trequests`` has been used in production in a large scale metrics application, and is a very small and quite simple module.
 
-**However** I've released it as ``0.9.x`` mainly because it's missing 100% compatibility with the Requests adapter API, most noticeably *cookie jar* and *session* support, which I will improve (or please push a pull request back if you fancy adding support), and release as a ``1.x`` branch when I have the time.
+**However** I've released it as ``0.9.x`` mainly because it's missing 100% compatibility with the Requests adapter API, most noticeably *cookie jar* and *session* support, which I will improve (or please send me a pull request if you fancy adding support), and release as a ``1.x`` branch when I have the time.
 
 Also at the moment the ``setup_session`` utility actually monkey patches the ``session`` utility functions in Requests, as this was the only way I could see to override the mounts on "default" session instances (e.g. those created for every call when a session isn't provided). I'm hoping to change this in the future.
