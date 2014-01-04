@@ -5,7 +5,7 @@ from tornado.httpclient import AsyncHTTPClient
 
 
 def get_version_string():
-    return open(path.join(path.dirname(__file__),
+    return open(path.join(path.dirname(path.dirname(__file__)),
                 'trequests_version.txt'), 'r').read().strip()
 
 
