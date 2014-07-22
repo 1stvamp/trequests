@@ -1,6 +1,11 @@
 ChangeLog for trequests
 =======================
 
+0.9.5 (21-07-2014)
+------------------
+
+ - Fixed import error with trequests_verison.txt not being properly included in dist.
+
 0.9.3 (12-12-2013)
 ------------------
 
