@@ -3,4 +3,8 @@ python:
         - "2.6"
         - "2.7"
         - "3.3"
-script: "nosetests"
+before_script:
+        - "python setup.py install"
+        - "mkdir -p /tmp/trequest-tests"
+        - "cp tests.py /tmp/trequest-tests"
+script: "nosetests /tmp/trequest-tests/"
