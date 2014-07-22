@@ -1,4 +1,4 @@
 include requirements.txt
 include LICENSE
 include README.rst
-include trequests_version.txt
+include trequests/trequests_version.txt

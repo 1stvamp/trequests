@@ -11,7 +11,7 @@ except ImportError:
 
 
 cwd = path.dirname(__file__)
-__version__ = open(path.join(cwd, 'trequests_version.txt'),
+__version__ = open(path.join(cwd, 'trequests/trequests_version.txt'),
                    'r').read().strip()
 
 setup(
