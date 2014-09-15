@@ -6,5 +6,5 @@ python:
 before_script:
         - "python setup.py install"
         - "mkdir -p /tmp/trequest-tests"
-        - "cp tests.py /tmp/trequest-tests"
+        - "cp trequests_tests.py /tmp/trequest-tests"
 script: "nosetests /tmp/trequest-tests/"
