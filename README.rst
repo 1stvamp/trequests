@@ -49,6 +49,12 @@ Usage
             return self.write(response)
 
 
+Tests
+-----
+
+To run the basic testsuite hit up `python setup.py test`.
+
+
 Caveats
 -------
 

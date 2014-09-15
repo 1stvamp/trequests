@@ -27,5 +27,6 @@ setup(
     install_requires=open('requirements.txt').readlines(),
     package_data={'': ['trequests_version.txt']},
     include_package_data=True,
+    test_suite="trequests.tests",
     license='BSD'
 )
