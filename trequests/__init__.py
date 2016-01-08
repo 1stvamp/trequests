@@ -38,7 +38,8 @@ class AsyncHTTPAdapter(requests.adapters.HTTPAdapter):
         resp = asyncify(http_client.fetch)(request=request.url,
                                            method=request.method,
                                            body=request.body,
-                                           headers=request.headers)
+                                           headers=request.headers,
+                                           validate_cert=verify)
 
         # We probably don't get this from any of the tornado adaptors, so
         # we stub it out as Unknown
