@@ -9,6 +9,10 @@
 @file: simple_demo.py
 @time: 22/07/2017 11:06 AM
 
+1. run "python simple_demo.py" to start this script
+2. curl "http://127.0.0.1:8888" in multiple shell to test concurrent
+
+
 """
 import requests
 import tornado.ioloop
